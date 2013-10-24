@@ -1,0 +1,29 @@
+extends ../layout
+include ../mixins/form-helpers
+
+block content
+
+  form#item-form.form-horizontal(action="/items/create", method="POST")
+    fieldset
+      legend Create a new Item
+    
+      .control-group
+        mixin label("name", "Name")        
+        .controls
+          mixin text("name", item.name)
+          mixin errorMessage('item', 'name')
+      .control-group
+        mixin label("files", "Files")        
+        .controls
+          mixin text("files", item.files)
+          mixin errorMessage('item', 'files')
+      .control-group
+        mixin label("date", "Date")        
+        .controls
+          mixin date("date", item.date)
+          mixin errorMessage('item', 'date')
+
+    .form-actions
+      a.btn.btn-warning(href="/items") Back
+      | 
+      input.btn.btn-primary(type="submit", value="Create")

@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h2.display-data Delete Item?
+            
+  table.table.table-bordered
+    tr
+      th Property
+      th Value
+        tr
+          td Name
+          td= display(item.name)
+        tr
+          td Files
+          td= display(item.files)
+        tr
+          td Date
+          td= display(item.date)
+
+
+  form#item-form.form-horizontal(action="/items/" + item._id + "/delete", method="POST")
+    .form-actions
+      a.btn.btn-warning(href="/items") Back
+      | 
+      input.btn.btn-danger(type="submit", value="Delete")
