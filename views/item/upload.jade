@@ -13,15 +13,13 @@ block content
           mixin text("name", item.name)
           mixin errorMessage('item', 'name')
       .control-group
-        mixin label("files", "Files")        
+        mixin label("file", "File")        
         .controls
-          mixin text("files", item.files)
-          mixin errorMessage('item', 'files')
-      .control-group
-        mixin label("date", "Date")        
-        .controls
-          mixin date("date", item.date)
-          mixin errorMessage('item', 'date')
+          mixin date("file", item.file)
+          mixin errorMessage('item', 'file')
+    .div(draggable="true")
+      p drag your files here
+
 
     .form-actions
       a.btn.btn-warning(href="/items") Back

@@ -22,8 +22,8 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/items/create', function(req, res) {
-        res.render('item/create', { item : new Item() });
+    app.get('/new', function(req, res) {
+        res.render('item/upload', { item : new Item() });
     });
 
     app.post('/items/create', function(req, res) { 
