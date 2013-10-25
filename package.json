@@ -7,13 +7,19 @@
   "dependencies": {
     "express": "3.1.x",
     "jade": ">0.0.1",
-    "mongoose": "3.5.x"
+    "mongoose": "3.5.x",
+    "psd": "0.0.4",
+    "express-resizer": "0.0.6"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-sass": "~0.5.0"
   },
   "scripts": {
-    "start": "nodemon app.js -wmodels -wconfig -wroutes"
+    "start": "nodemon server.js -wmodels -wconfig -wroutes"
   },
   "repository": "",
   "keywords": "express, jade",
