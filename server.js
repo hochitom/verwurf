@@ -2,7 +2,19 @@ var path = require('path'),
     express = require('express'),
     http = require('http'),
     mongoose = require('mongoose'),
+    Resizer = require("express-resizer"),
     config = require('./config');
+
+var myResizer = new Resizer(__dirname + "/public");
+
+myResizer.attach("squareThumbs")
+    .from("/uploads")
+    .resizeAndCrop({
+        width: 100,
+        height: 100,
+    })
+    .quality(50)
+    .to("/thumbs");
 
 var app = express();
 
@@ -19,6 +31,7 @@ app.configure(function(){
     app.use(express.logger());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(myResizer);
 
 	app.use(express.cookieParser('your secret here'));
     app.use(express.session());

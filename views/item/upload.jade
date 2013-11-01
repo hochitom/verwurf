@@ -3,7 +3,7 @@ include ../mixins/form-helpers
 
 block content
 
-  form#item-form.form-horizontal(action="/items/create", method="POST")
+  form#item-form.form-horizontal(action="/new", method="POST", enctype="multipart/form-data")
     fieldset
       legend Create a new Item
     

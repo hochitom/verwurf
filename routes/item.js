@@ -1,5 +1,6 @@
 var express = require('express'),
     Item = require('../models/item'),
+    processPSD = require('../lib/processpsd'),
     mapper = require('../lib/model-mapper');
 
 
@@ -26,17 +27,17 @@ module.exports = function(app) {
         res.render('item/upload', { item : new Item() });
     });
 
-    app.post('/items/create', function(req, res) { 
-        var item = new Item(req.body);
+    app.post('/new', function(req, res) {
+        var item = new Item();
 
-        item.save(function(err) {
+        item.save(function (err, data) {
             if (err) {
-                res.render('item/create', {
-                    item : item
-                });
-            } else {
-                res.redirect('/items');
+                console.error(err);
+                res.send('sorry, there was an error saving your file');
+                res.end();
             }
+
+            processPSD(req.files.file.path, res.redirect('/verwurf/' + item._id));
         });
     });
 

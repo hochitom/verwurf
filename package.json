@@ -9,7 +9,8 @@
     "jade": ">0.0.1",
     "mongoose": "3.5.x",
     "psd": "0.0.4",
-    "express-resizer": "0.0.6"
+    "express-resizer": "0.0.6",
+    "canvas": "~1.1.2"
   },
   "devDependencies": {
     "mocha": "*",
