@@ -30,6 +30,8 @@ module.exports = function(app) {
     app.post('/new', function(req, res) {
         var item = new Item();
 
+        // To-Do: check filetype to process image the right way
+
         item.save(function (err, data) {
             if (err) {
                 console.error(err);
