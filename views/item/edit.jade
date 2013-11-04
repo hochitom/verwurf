@@ -4,7 +4,7 @@ include ../mixins/form-helpers
 block content
   form#item-form.form-horizontal(action="/items/" + item._id + "/edit", method="POST")
     fieldset
-      legend Edit Item
+      legend Edit #{item.name}
 
       .control-group
         mixin label("name", "Name")        
@@ -12,17 +12,12 @@ block content
           mixin text("name", item.name)
           mixin errorMessage('item', 'name')
       .control-group
-        mixin label("files", "Files")        
+        mixin label("reason", "Reason")        
         .controls
-          mixin text("files", item.files)
-          mixin errorMessage('item', 'files')
-      .control-group
-        mixin label("date", "Date")        
-        .controls
-          mixin date("date", item.date)
-          mixin errorMessage('item', 'date')
+          mixin textarea("reason", item.reason)
+          mixin errorMessage('item', 'reason')
 
     .form-actions
-      a.btn.btn-warning(href="/items") Back
+      a.btn.btn-warning(href="/") Back
       | 
       input.btn.btn-primary(type="submit", value="Save")

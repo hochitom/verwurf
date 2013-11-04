@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
 
     app.post('/new', function(req, res) {
-        var item = new Item();
+        var item = new Item(req.body);
 
         // To-Do: check filetype to process image the right way
         item.save(function (err, data) {
@@ -20,7 +20,7 @@ module.exports = function(app) {
                 res.end();
             }
 
-            processPSD(req.files.file.path, item._id, res.redirect('/verwurf/' + item._id));
+            processPSD(req.files.file.path, item._id, res.redirect('/item/' + item._id));
         });
     });
 }

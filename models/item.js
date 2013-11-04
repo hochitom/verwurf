@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 
 var Item = new Schema({
     name: { type: String },
+    reason: { type: String },
     files: { 
     	big: {type: String},
     	big_r: {type: String},

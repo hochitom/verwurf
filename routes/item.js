@@ -15,18 +15,16 @@ module.exports = function(app) {
             }
         });
     });
-    
-    app.get('/items', function(req, res) {
-        Item.find({}, function(err, items) {
-            res.render('item/index', { items : items });
-        });
+
+    app.get('/item/:itemId', function(req, res) {
+        res.render('item/detail');
     });
 
-    app.get('/items/:itemId/edit', function(req, res) {
+    app.get('/item/:itemId/edit', function(req, res) {
         res.render('item/edit');
     });
 
-    app.post('/items/:itemId/edit', function(req, res) {
+    app.post('/item/:itemId/edit', function(req, res) {
         var item = res.locals.item;
         mapper.map(req.body).to(item);
 
@@ -36,20 +34,20 @@ module.exports = function(app) {
                     item : item
                 });
             } else {
-                res.redirect('/items');
+                res.redirect('/item/:itemId');
             }
         });
     });
 
-    app.get('/items/:itemId/detail', function(req, res) {
+    app.get('/item/:itemId/detail', function(req, res) {
         res.render('item/detail');
     });
 
-    app.get('/items/:itemId/delete', function(req, res) {
+    app.get('/item/:itemId/delete', function(req, res) {
         res.render('item/delete');
     });
 
-    app.post('/items/:itemId/delete', function(req, res) {
+    app.post('/item/:itemId/delete', function(req, res) {
         Item.remove({ _id : req.params.itemId }, function(err) {
             res.redirect('/items');
         });

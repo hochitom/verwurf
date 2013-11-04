@@ -18,8 +18,8 @@ block content
           td= display(item.date)
 
 
-  form#item-form.form-horizontal(action="/items/" + item._id + "/delete", method="POST")
+  form#item-form.form-horizontal(action="/item/" + item._id + "/delete", method="POST")
     .form-actions
-      a.btn.btn-warning(href="/items") Back
+      a.btn.btn-warning(href="/item") Back
       | 
       input.btn.btn-danger(type="submit", value="Delete")
