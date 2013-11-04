@@ -39,7 +39,7 @@ module.exports = function(app) {
                 res.end();
             }
 
-            processPSD(req.files.file.path, res.redirect('/verwurf/' + item._id));
+            processPSD(req.files.file.path, item._id, res.redirect('/verwurf/' + item._id));
         });
     });
 
