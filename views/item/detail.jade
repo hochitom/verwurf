@@ -1,26 +1,16 @@
 extends ../layout
 
 block content
-  h2.display-data Item Detail
-            
-  table.table.table-bordered
-    tr
-      th Property
-      th Value
-        tr
-          td Name
-          td= display(item.name)
-        tr
-          td Files
-          td= display(item.files)
-        tr
-          td Date
-          td= display(item.date)
+  .row
+    .span8
+      img(src="/uploads/#{item._id}/full.png", alt=item.name)
+    .span4
+      h1.display-data #{item.name}
+      p #{item.reason}
 
-
-  .form-actions
-    a.btn.btn-warning(href="/item") Back
-    | 
-    a.btn.btn-primary(href="/item/" + item._id + "/edit") Edit
-    | 
-    a.btn.btn-danger(href="/item/" + item._id + "/delete") Delete
+      .form-actions
+        a.btn.btn-warning(href="/item") Back
+        | 
+        a.btn.btn-primary(href="/item/" + item._id + "/edit") Edit
+        | 
+        a.btn.btn-danger(href="/item/" + item._id + "/delete") Delete

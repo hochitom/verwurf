@@ -10,7 +10,8 @@
     "mongoose": "3.5.x",
     "psd": "0.0.4",
     "express-resizer": "0.0.6",
-    "canvas": "~1.1.2"
+    "canvas": "~1.1.2",
+    "gm": "~1.13.3"
   },
   "devDependencies": {
     "mocha": "*",

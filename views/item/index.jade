@@ -4,21 +4,8 @@ block content
   h2.display-data All Items
     a.btn.btn-primary.pull-right(href="/new") Create a new Verwurf
 
-  table.table.table-bordered.table-striped(style="width:100%")
-    tr
-        th Name
-        th.last
-
+  .row
     each item in items
-      tr
-        td= display(item.name)
-
-        td
-          a(href="/item/" + item._id + "/detail", title="Detail")
-            i.icon-zoom-in
-          | 
-          a(href="/item/" + item._id + "/edit", title="Edit")
-            i.icon-edit
-          | 
-          a(href="/item/" + item._id + "/delete", title="Delete")
-            i.icon-remove
+      .span4
+        a(href="/item/#{item._id}")
+          img(src="/uploads/#{item._id}/full.png")
