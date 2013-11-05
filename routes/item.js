@@ -1,8 +1,6 @@
 var express = require('express'),
     Item = require('../models/item'),
-    gm = require('gm'),
     mapper = require('../lib/model-mapper');
-
 
 module.exports = function(app) {
 
@@ -18,12 +16,6 @@ module.exports = function(app) {
     });
 
     app.get('/item/:itemId', function(req, res) {
-        var dir = __dirname + '/../public/uploads/' + res.locals.item._id;
-        console.log(dir);
-        gm(dir + '/full.png')
-            .thumb(300, 200, dir + '/thumb.png', 60, function (err) {
-                res.send(err);
-            });
         res.render('item/detail');
     });
 

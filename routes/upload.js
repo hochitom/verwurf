@@ -1,7 +1,6 @@
 var express = require('express'),
     Item = require('../models/item'),
     processPSD = require('../lib/processpsd'),
-    createImages = require('../lib/createimages'),
     mapper = require('../lib/model-mapper');
 
 module.exports = function(app) {
@@ -20,7 +19,7 @@ module.exports = function(app) {
                 res.end();
             }
 
-            processPSD(req.files.file.path, item._id, createImages(item._id, res.redirect('/item/' + item._id)));
+            processPSD(req.files.file.path, item._id, res, "res.redirect('/item/' + id)");
         });
     });
 }
