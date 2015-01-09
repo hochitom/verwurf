@@ -48,7 +48,7 @@ module.exports = function(app) {
 
     app.post('/item/:itemId/delete', function(req, res) {
         Item.remove({ _id : req.params.itemId }, function(err) {
-            res.redirect('/items');
+            res.redirect('/');
         });
     });
 }
